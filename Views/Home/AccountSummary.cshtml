@@ -1,0 +1,23 @@
+@model User;
+
+
+<section>
+    <h4>Account Information</h4>
+    <hr>
+    <div>
+        <p><strong>First Name:</strong> @Model.FirstName</p>
+        <p><strong>Last Name:</strong> @Model.LastName </p>
+        <p><strong>Email Address:</strong> @Model.Email </p>
+        <p><strong>Funded Items:</strong> </p>
+        <p><strong>Project Items Own:</strong> </p>
+        <ul>
+        @foreach(var items in Model.ItemList)
+        {
+            <li><a asp-action="ShowProject" asp-controller="Item" asp-route-id="@items.ItemId">@items.Name</a></li>
+        }
+        </ul>
+    </div>
+</section>
+
+<button type="button" class="btn btn-outline-secondary"><a asp-action="Logout" asp-controller="Home">Logout</a></button>
+
